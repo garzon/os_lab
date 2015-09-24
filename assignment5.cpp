@@ -93,6 +93,7 @@ int main(void) {
                 strcpy(cmd, history_p->cmd);
             } else {
                 printf("!!: no command\n");
+                continue;
             }
         }
 
