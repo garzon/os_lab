@@ -86,6 +86,16 @@ int main(void) {
         if(len == 0) continue;
         cmd[len] = '\0';
 
+        if(strcmp(cmd, "!!") == 0) {
+            history_p = &history_head;
+            while(history_p->next && history_p->next->next) history_p = history_p->next;
+            if(history_p->next) {
+                strcpy(cmd, history_p->cmd);
+            } else {
+                printf("!!: no command\n");
+            }
+        }
+
         history_p = &history_head;
         while(history_p->next) {
             history_p = history_p->next;
